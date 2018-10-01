@@ -1,0 +1,15 @@
+{
+  "name": "slevoking-pohovor",
+  "homepage": "https://github.com/hladpe/Slevoking-pohovor",
+  "authors": [
+    "Petr Hladík <hladpe@gmail.com>"
+  ],
+  "description": "Vstupní test z pohovoru",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6",
+    "nittro-full": "^2.0.62"
+  }
+}
