@@ -2,6 +2,9 @@
 
 namespace App\Models\Entities\FeckoEntity;
 
+use MathParser\StdMathParser;
+use MathParser\Interpreting\Evaluator;
+
 /**
  * Class Math
  * @package App\Models\Entities\FeckoEntity
@@ -70,7 +73,10 @@ class Math
 	 */
 	private function calculate(string $expression)
 	{
-		$compute = create_function("", "return (" . $expression . ");" );
-		return 0 + $compute();
+		$parser 	= new StdMathParser();
+		$ast 		= $parser->parse($expression);
+		$evaluator 	= new Evaluator();
+		$value 		= $ast->accept($evaluator);
+		return $value;
 	}
 }
