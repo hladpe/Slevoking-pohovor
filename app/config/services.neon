@@ -3,4 +3,4 @@ services:
 
 	# components
 	- App\Components\ClientInfo\IClientInfoFactory
-	- App\Models\Clients\FeckoClient(%FeckoClientSourceUrl%)
+	- App\Models\Clients\FeckoClient(%feckoClientSourceUrl%)
