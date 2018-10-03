@@ -4,13 +4,27 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>{_web.title}</title>
-	{block styles}
-		<link href="{$baseUrl}/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	{/block}
+	<link href="{$baseUrl}/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{$baseUrl}/assets/packages/nittro/nittro.min.css" rel="stylesheet">
+	<link href="{$baseUrl}/assets/styles/custom.css" rel="stylesheet">
+	{block styles}{/block}
 </head>
 
 <body>
 	<div class="container">
+		<div id="loader-wrapper">
+			<div id="loader">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+
 		{include content}
 
 		<footer class="pt-4 my-md-5 pt-md-5" style="border-top: 1px solid rgba(0,0,0,.125);">
@@ -23,9 +37,10 @@
 		</footer>
 	</div>
 
-	{block scripts}
-		<script src="{$baseUrl}/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="{$baseUrl}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	{/block}
+	<script src="{$baseUrl}/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="{$baseUrl}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="{$baseUrl}/assets/packages/nittro/nittro.min.js"></script>
+	<script src="{$baseUrl}/assets/scripts/custom.js"></script>
+	{block scripts}{/block}
 </body>
 </html>

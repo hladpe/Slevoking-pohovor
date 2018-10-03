@@ -9,7 +9,6 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap": "v4.0.0-alpha.6",
-    "nittro-full": "^2.0.62"
+    "bootstrap": "v4.0.0-alpha.6"
   }
 }

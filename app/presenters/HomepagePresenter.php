@@ -4,7 +4,6 @@ namespace App\Presenters;
 
 use App\Components\ClientInfo\IClientInfoFactory;
 use App\Models\Clients\FeckoClient;
-use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Form;
 use DateTime;
 use DateInterval;
@@ -14,7 +13,7 @@ use DatePeriod;
  * Class HomepagePresenter
  * @package App\Presenters
  */
-class HomepagePresenter extends Presenter
+class HomepagePresenter extends BasePresenter
 {
 	/**
 	 * @var IClientInfoFactory
@@ -79,6 +78,7 @@ class HomepagePresenter extends Presenter
 	protected function createComponentTasksForm()
 	{
 		$form = new Form;
+		$form->getElementPrototype()->class('ajax');
 		$form->addSubmit('processTask1', $this->translator->translate('homepage.form.processTask1'))
 			->onClick[] = [$this, 'processTask1'];
 		$form->addSubmit('processTask2', $this->translator->translate('homepage.form.processTask2'))
