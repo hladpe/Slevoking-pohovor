@@ -6,6 +6,6 @@ form:
 	processTask4: Zpracovat úlohu č. 4
 
 filteringResults: Výsledky filtrování
-filteringOutput: "Byla zpracována úloha <strong>č. %processedTask% </strong>, nalezeno celkem %filteredItemsCount% položek vyhovujících požadavkům zadání (zbylých %unfilteredItemsCount% zadání nevyhovuje)."
+filteringOutput: "Byla zpracována úloha <strong>č. %processedTask% </strong>, nalezeno celkem %filteredItemsCount% položek vyhovujících požadavkům zadání (zbylých %unfilteredItemsCount% položek zadání nevyhovuje)."
 compliantRecords: Vyhovující záznamy
 noMatchingRecordFound: Nebyl nalezen žádný vyhovující záznam.
