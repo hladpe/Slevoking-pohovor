@@ -2,6 +2,7 @@ includes:
 	- services.neon
 
 parameters:
+	FeckoClientSourceUrl: "http://slevoking.lh/php-test.json"
 
 
 application:

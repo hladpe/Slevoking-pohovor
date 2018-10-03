@@ -15,12 +15,21 @@ class FeckoClient implements IClient
 	/**
 	 * @var string
 	 */
-	private $url = 'http://slevoking.lh/php-test.json';
+	private $url;
 
 	/**
 	 * @var FeckoCollection|null
 	 */
 	private $data;
+
+	/**
+	 * FeckoClient constructor.
+	 * @param string $url
+	 */
+	public function __construct(string $url)
+	{
+		$this->url = $url;
+	}
 
 	/**
 	 * @return FeckoCollection|null

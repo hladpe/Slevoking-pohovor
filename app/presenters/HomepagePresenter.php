@@ -22,6 +22,12 @@ class HomepagePresenter extends BasePresenter
 	public $clientInfoFactory;
 
 	/**
+	 * @var FeckoClient
+	 * @inject
+	 */
+	public $feckoClient;
+
+	/**
 	 * @var \App\Models\Collections\FeckoCollection|null
 	 */
 	private $items;
@@ -68,8 +74,7 @@ class HomepagePresenter extends BasePresenter
 	 */
 	private function loadItems()
 	{
-		$client = new FeckoClient();
-		$this->items = $client->load();
+		$this->items = $this->feckoClient->load();
 	}
 
 	/**
