@@ -1,0 +1,24 @@
+informationsAboutClient: Informace o klientovi
+heading:
+	parameter: Parametr
+	value: Hodnota
+
+states:
+	true: Ano
+	false: Ne
+
+params:
+	ip: IP adresa
+	request_time: Čas dotazu
+	is_bot: Je botem
+	browser_name: Název prohlížeče
+	browser_version: Verze prohlížeče
+	rendering_engine_name: Název renderovacího jádra
+	rendering_engine_version: Verze rádrovacího jádra
+	operation_system_name: Název operačního systému
+	operation_system_version: Verze operačního systému
+	device_type: Typ zařízení
+	device_is_mobile: Je mobilním zařízením
+	device_is_touchable: Je dotykovým zařízením
+	device_model: Model zařízení
+	device_brand: Značka zařízení

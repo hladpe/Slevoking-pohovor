@@ -1,0 +1,23 @@
+{block content}
+	<h1 class="mt-5">{_userinfo.informationsAboutClient}</h1>
+	<table class="table table-bordered table-hover mt-2">
+		<thead>
+			<tr>
+				<th scope="col">{_userinfo.heading.parameter}</th>
+				<th scope="col">{_userinfo.heading.value}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr n:foreach="$info as $param => $value">
+				<td>{_ 'userinfo.params.' . $param}</td>
+				<td>
+					{if is_null($value)}
+						?
+					{else}
+						{$value}
+					{/if}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+{/block}

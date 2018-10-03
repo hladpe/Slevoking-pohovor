@@ -1,8 +1,8 @@
 {block content}
 	<div class="row">
 		<div class="col-lg-12">
-			{snippet form}
-				<h1 class="mt-5">Filtrování záznamů z endpointu na fecko.org</h1>
+			{snippet details}
+				<h1 class="mt-5">{_homepage.recordsFiltering}</h1>
 				{form tasksForm, class => 'mt-4 mb-4'}
 					{input processTask1, class => 'btn' . ($processedTask === 1 ? ' btn-success' : ' btn-primary')}
 					{input processTask2, class => 'btn' . ($processedTask === 2 ? ' btn-success' : ' btn-primary')}
@@ -10,13 +10,18 @@
 					{input processTask4, class => 'btn' . ($processedTask === 4 ? ' btn-success' : ' btn-primary')}
 				{/form}
 				{if $processedTask}
-					<h2 class="mt-8">Výsledky filtrování</h2>
+					<h2 class="mt-4">{_homepage.filteringResults}</h2>
 					<p class="lead">
-						Byla zpracována úloha <strong>č. {$processedTask}</strong>, nalezeno celkem <strong>{$filteredItemsCount}</strong> položek vyhovujících požadavkům zadání (zbylých {$unfilteredItemsCount} zadání nevyhovuje).
+						{var $settings = [
+							'processedTask' => $processedTask,
+							'filteredItemsCount' => $filteredItemsCount,
+							'unfilteredItemsCount' => $unfilteredItemsCount
+						]}
+						{_homepage.filteringOutput, $settings|noescape}
 					</p>
-					<strong>Vyhovující záznamy:</strong>
+					<strong>{_homepage.compliantRecords}:</strong>
 					{if $filteredItemsCount === 0}
-						<p class="text-muted">Nebyl nalezen žádný vyhovující záznam.</p>
+						<p class="text-muted">{_homepage.noMatchingRecordFound}</p>
 					{else}
 						<table class="table table-bordered table-hover mt-2">
 							<thead>
@@ -44,6 +49,7 @@
 						</table>
 					{/if}
 				{/if}
+				{control clientInfo}
 			{/snippet}
 		</div>
 	</div>

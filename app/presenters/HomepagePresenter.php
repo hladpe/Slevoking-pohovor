@@ -2,6 +2,7 @@
 
 namespace App\Presenters;
 
+use App\Components\ClientInfo\IClientInfoFactory;
 use App\Models\Clients\FeckoClient;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Form;
@@ -15,6 +16,12 @@ use DatePeriod;
  */
 class HomepagePresenter extends Presenter
 {
+	/**
+	 * @var IClientInfoFactory
+	 * @inject
+	 */
+	public $clientInfoFactory;
+
 	/**
 	 * @var \App\Models\Collections\FeckoCollection|null
 	 */
@@ -72,13 +79,13 @@ class HomepagePresenter extends Presenter
 	protected function createComponentTasksForm()
 	{
 		$form = new Form;
-		$form->addSubmit('processTask1', 'Zpracovat úlohu č. 1')
+		$form->addSubmit('processTask1', $this->translator->translate('homepage.form.processTask1'))
 			->onClick[] = [$this, 'processTask1'];
-		$form->addSubmit('processTask2', 'Zpracovat úlohu č. 2')
+		$form->addSubmit('processTask2', $this->translator->translate('homepage.form.processTask2'))
 			->onClick[] = [$this, 'processTask2'];
-		$form->addSubmit('processTask3', 'Zpracovat úlohu č. 3')
+		$form->addSubmit('processTask3', $this->translator->translate('homepage.form.processTask3'))
 			->onClick[] = [$this, 'processTask3'];
-		$form->addSubmit('processTask4', 'Zpracovat úlohu č. 4')
+		$form->addSubmit('processTask4', $this->translator->translate('homepage.form.processTask4'))
 			->onClick[] = [$this, 'processTask4'];
 		return $form;
 	}
@@ -95,7 +102,7 @@ class HomepagePresenter extends Presenter
 				'envoyer'
 			]);
 		$this->processedTask = 1;
-		$this->redrawControl('form');
+		$this->redrawControl('details');
 	}
 
 	/**
@@ -123,7 +130,7 @@ class HomepagePresenter extends Presenter
 
 		$this->filteredItems = $items->filterByCallback($filter);
 		$this->processedTask = 2;
-		$this->redrawControl('form');
+		$this->redrawControl('details');
 	}
 
 	/**
@@ -141,7 +148,7 @@ class HomepagePresenter extends Presenter
 
 		$this->filteredItems = $items->filterByCreatedPeriod($dateperiod);
 		$this->processedTask = 3;
-		$this->redrawControl('form');
+		$this->redrawControl('details');
 	}
 
 	/**
@@ -153,6 +160,14 @@ class HomepagePresenter extends Presenter
 		$this->filteredItems = $this->getItems()
 			->filterByCorrectMathCalculation();
 		$this->processedTask = 4;
-		$this->redrawControl('form');
+		$this->redrawControl('details');
+	}
+
+	/**
+	 * @return \App\Components\ClientInfo\ClientInfo
+	 */
+	protected function createComponentClientInfo()
+	{
+		return $this->clientInfoFactory->create();
 	}
 }
